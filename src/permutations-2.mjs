@@ -18,6 +18,10 @@ export function permutations(baseList){
                 return baseIndex > maxIndex
             })
 
+            if(!candidates.length){
+                return  result
+            }
+
             // 插入位置为n + 1, 一个元素可以有两个插入位置（前后）
             for(let i = subsetItem.length + 1; i--;){
                 candidates.forEach(candiItem => {
