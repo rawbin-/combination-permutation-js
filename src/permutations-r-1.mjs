@@ -1,5 +1,5 @@
 import {combinations} from "./combinations-2.mjs";
-import {permutations} from "./permutations.mjs";
+import {permutations} from "./permutations-1.mjs";
 
 export function permutationsR(baseList, subSetLength){
     const combinationsR = combinations(baseList,subSetLength)

@@ -1,5 +1,5 @@
 import {combinationsAll} from "./combinations-all.mjs";
-import {permutations} from "./permutations.mjs";
+import {permutations} from "./permutations-1.mjs";
 
 export function permutationsAll(baseList){
     const allCombinations = combinationsAll(baseList)
