@@ -3,7 +3,7 @@ export function permutations(baseList){
         return
     }
 
-    if(baseList.length === 1){
+    if(baseList.length <= 1){
         return [baseList];
     }
 
