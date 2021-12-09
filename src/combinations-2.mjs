@@ -24,7 +24,7 @@ const getNextCombination = (prevList,maxK,subSetLen) => {
     return nextList
 }
 
-function combinationsDict(baseLen, subSetLen){
+export function combinationsDict(baseLen, subSetLen){
     if(baseLen < subSetLen){
         return
     }
