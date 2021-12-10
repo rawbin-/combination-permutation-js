@@ -129,12 +129,18 @@ export var tee = function (iterable, n) {
 };
 export var product = function () {
     let args = [].slice.apply(arguments);
-    if (args.length && args[args.length - 1].hasOwnProperty("__kwargtrans__")) var repeat = args.pop()["repeat"]; else var repeat = 1;
+    if (args.length && args[args.length - 1].hasOwnProperty("__kwargtrans__"))
+        var repeat = args.pop()["repeat"];
+    else
+        var repeat = 1;
+
     let oldMolecules = [tuple([])];
-    for (let i = 0; i < repeat; i++) for (let arg of args) {
-        let newMolecules =
-            [];
-        for (let oldMolecule of oldMolecules) for (let atom of arg) newMolecules.append(tuple(oldMolecule.concat(atom)));
+    for (let i = 0; i < repeat; i++)
+    for (let arg of args) {
+        let newMolecules = [];
+        for (let oldMolecule of oldMolecules)
+            for (let atom of arg)
+                newMolecules.append(tuple(oldMolecule.concat(atom)));
         oldMolecules = newMolecules
     }
     return list(oldMolecules)
@@ -145,19 +151,25 @@ export var permutations = function (iterable, r) {
     } catch (exception) {
         r = len(list(iterable))
     }
+
     let aProduct = product(iterable, __kwargtrans__({repeat: r}));
+
     let result = [];
-    for (let molecule of aProduct) if (len(set(molecule)) == r) result.append(molecule);
+    for (let molecule of aProduct)
+        if (len(set(molecule)) == r)
+            result.append(molecule);
     return list(result)
 };
 export var combinations = function (iterable, r) {
-    let tail =
-        list(iterable);
+    let tail = list(iterable);
 
     function recurse(tail, molecule, rNext) {
         for (let index = 0; index < len(tail) - rNext; index++) {
             let newMolecule = molecule.concat(tail.slice(index, index + 1));
-            if (rNext) recurse(tail.slice(index + 1), newMolecule, rNext - 1); else result.append(tuple(newMolecule))
+            if (rNext)
+                recurse(tail.slice(index + 1), newMolecule, rNext - 1);
+            else
+                result.append(tuple(newMolecule))
         }
     }
 
