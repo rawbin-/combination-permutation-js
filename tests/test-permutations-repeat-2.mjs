@@ -1,4 +1,6 @@
-import {permutations} from "../src/permutations-1.mjs";
+import {permutationsRepeat} from "../src/permutations-repeat-2.mjs";
 
-console.log(permutations([1,2,3,4,5,6]))
-console.log(permutations(['A','B','C','D','E','F']))
+console.log(permutationsRepeat([1,2,3]))
+console.log(permutationsRepeat(['A','B','C']))
+console.log(permutationsRepeat([1,2,3,4]))
+console.log(permutationsRepeat(['A','B','C','D']))

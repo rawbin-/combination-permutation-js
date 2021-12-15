@@ -1,23 +1,20 @@
-export function permutations(baseList){
+export function permutationsRepeat(baseList, subPermuLength = baseList.length){
     if(!Array.isArray(baseList)){
         return
     }
 
-    if(baseList.length <= 1){
-        return [baseList];
+    if(subPermuLength === 1){
+        return baseList.map(baseItem => [baseItem])
     }
 
-    const lessPermutation = permutations(baseList.slice(1))
-    const firstEl = baseList[0]
+    const lessPermutation = permutationsRepeat(baseList,subPermuLength - 1)
 
     const resultList = []
-    lessPermutation.forEach(lessPermuItem => {
-        // n + 1 个可插入的位置
-        for(let i = 0, len = lessPermuItem.length; i <= len; i++){
-            const tempResult = [...lessPermuItem]
-            tempResult.splice(i,0, firstEl)
-            resultList.push(tempResult)
-        }
+    // 因为有重复，所以这里不能用插入，而要用拼接
+    baseList.forEach(baseItem => {
+        lessPermutation.forEach(lessItem => {
+            resultList.push([baseItem,...lessItem])
+        })
     })
     return resultList
 }
